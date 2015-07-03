@@ -3,7 +3,7 @@
  Plugin Name: Facebook Like Box Widgets
  Plugin URI: http://www.wpchandra.com
  Description: Using Facebook like box widgets easy and quick in your blog. This Plugin support you to customize facebook like box in easy way.
- Version: 1.0
+ Version: 1.1
  Author: Chandrakesh Kumar
  Author URI: http://www.wpchandra.com/
  License: GPL3
