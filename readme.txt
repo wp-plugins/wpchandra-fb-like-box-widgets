@@ -13,6 +13,8 @@ Using Facebook like box widgets easy and quick in your blog. This Plugin support
 
 Using Facebook like box widgets easy and quick in your blog. This Plugin support you to customize facebook like box in easy way.
 
+Facebook Like Box Widget. Facebook Like Box Widget is a social plugin that enables Facebook Page owners to attract and gain Likes & Recommendation Comments from their own website.
+
 == Installation ==
 
 This section describes how to install the plugin and get it working.
