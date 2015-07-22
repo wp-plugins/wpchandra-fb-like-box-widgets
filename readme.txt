@@ -1,5 +1,6 @@
 === Facebook Like Box Widget ===
 Contributors:chandrakeshkumar,wp-chandra,chandgiri67
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2V34FUDP29MLC
 Tags: facebook, facebook like, facebook likebox, widget, facebook like box, facebook like widget, facebook widget
 Requires at least: 3.0.1
 Tested up to: 4.1.1
@@ -19,7 +20,7 @@ Facebook Like Box Widget. Facebook Like Box Widget is a social plugin that enabl
 
 * [The plugin designed and developed by Chandrakesh Kumar.](https://profiles.wordpress.org/chandrakeshkumar/#content-plugins)
 * [Chandrakesh Kumar on Facebook.](https://www.facebook.com/chandrakesh.kumar.giri)
-* [Chandrakesh Kumar on Twitter.](https://twitter.com/chanderkeshgiri)
+* [Chandrakesh Kumar on Twitter.](https://twitter.com/webchandra)
 * [LinkedIn on Twitter.](http://in.linkedin.com/in/chanderkeshgiri)
 
 
@@ -46,7 +47,8 @@ e.g.
 == Screenshots ==
 
 1. This screenshots for widget settings.
-2. After all see results like!
+2. After see latest facebook likebox results like!
+3. Old facebook likebox results like!
 
 
 1. Download [WPChandra FB Like Box Widget](https://wordpress.org/plugins/wp-facebook-like-box/) plugin.   
