@@ -9,7 +9,7 @@
  License: GPL3     
  */ 
 class Wpchandra_Facebook_Like_Box extends WP_Widget {   
-	function __construct() { 
+	function __construct() {  
 		parent::__construct(  
 			'wp_fb_like_box', // Base ID 
 			__( 'WPChandra Facebook Like Box', 'wpchandra-fb-like-box' ), // Name
