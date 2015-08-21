@@ -16,17 +16,11 @@ Using Facebook like box widget easy and quick in your blog. This Plugin support 
 
 Facebook Like Box Widget. Facebook Like Box Widget is a social plugin that enables Facebook Page owners to attract and gain Likes & Recommendation Comments from their own website.
 
-### About
+### Find Us on Social Media
 
-* [The plugin designed and developed by Chandrakesh Kumar.](https://profiles.wordpress.org/chandrakeshkumar/#content-plugins)
-* [Chandrakesh Kumar on Facebook.](https://www.facebook.com/chandrakesh.kumar.giri)
-* [Chandrakesh Kumar on Twitter.](https://twitter.com/webchandra)
-* [LinkedIn on Twitter.](http://in.linkedin.com/in/chanderkeshgiri)
-
-
-### More Plugins
-
-* [My Plugins](https://profiles.wordpress.org/chandrakeshkumar/#content-plugins)
+* [Facebook](https://www.facebook.com/pages/WPChandra-To-Start-for-Web-Development/325741047605388?fref=ts)
+* [Twitter](https://twitter.com/webchandra)
+* [LinkedIn](https://www.linkedin.com/company/wpchandra)
 
 
 == Installation ==
@@ -42,7 +36,7 @@ e.g.
 
 == Frequently Asked Questions ==
 
-
+There are no FAQ just yet
 
 == Screenshots ==
 
