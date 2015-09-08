@@ -14,7 +14,7 @@ class Wpchandra_Facebook_Like_Box extends WP_Widget {
 			'wp_fb_like_box', // Base ID 
 			__( 'WPChandra Facebook Like Box', 'wpchandra-fb-like-box' ), // Name
 			array( 'description' => __( 'WPChandra FB Like Box Widget!', 'wpchandra-fb-like-box' ), ) // Args
-		);
+		); 
 	}  
 	  
 	public function form( $instance ) {
