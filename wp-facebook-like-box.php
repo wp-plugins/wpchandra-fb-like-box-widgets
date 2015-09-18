@@ -1,21 +1,29 @@
 <?php
 /*
  Plugin Name: Facebook Like Box Widget
- Plugin URI: http://www.wpchandra.com
+ Plugin URI: https://wordpress.org/plugins/wpchandra-fb-like-box-widgets/
  Description: Using Facebook like box widget easy and quick in your blog. This Plugin support you to customize facebook like box in easy way.
- Version: 1.1     
- Author: Chandrakesh Kumar  
- Author URI: http://www.wpchandra.com/           
- License: GPL3            
- */       
+ Version: 2.0      
+ Author: Chandrakesh Kumar      
+ Author URI: http://www.wpchandra.com/               
+ License: GPL3                 
+ */           
 class Wpchandra_Facebook_Like_Box extends WP_Widget {   
 	function __construct() {  
-		parent::__construct(   
+		parent::__construct(     
 			'wp_fb_like_box', // Base ID 
-			__( 'WPChandra Facebook Like Box', 'wpchandra-fb-like-box' ), // Name
-			array( 'description' => __( 'WPChandra FB Like Box Widget!', 'wpchandra-fb-like-box' ), ) // Args
+			__( 'Facebook Likebox', 'wpchandra-fb-like-box' ), // Name
+			array( 'description' => __( 'WPChandra FB Likebox Widget!', 'wpchandra-fb-like-box' ), ) // Args
 		); 
-	}  
+		add_action('wp_head', array(&$this, 'wpchandra_add_fb_script_to_head'));  
+	}
+	
+	//add script to head
+	function wpchandra_add_fb_script_to_head(){
+
+		echo '<div id="fb-root"></div><script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=&version=v2.0";fjs.parentNode.insertBefore(js, fjs);}(document, "script", "facebook-jssdk"));</script>';
+	
+	}
 	  
 	public function form( $instance ) {
         if ( isset( $instance['title'] ) ) {
@@ -41,11 +49,10 @@ class Wpchandra_Facebook_Like_Box extends WP_Widget {
         if ( isset( $instance['page_username'] ) ) {
             $page_username = $instance['page_username'];
         }
+		else{
+			$page_username='https://www.facebook.com/WPChandra-To-Start-for-Web-Development-325741047605388/';
+		}
 		
-		if ( isset( $instance['fb_api_key'] ) ) {
-            $fb_api_key = $instance['fb_api_key'];
-        }
- 
         if ( isset( $instance['show_friends_faces'] ) ) {
             $show_friends_faces = $instance['show_friends_faces'];
         } else {
@@ -66,7 +73,7 @@ class Wpchandra_Facebook_Like_Box extends WP_Widget {
  
         ?>
         <p>
-            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title' ); ?>:</label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>"
                    name="<?php echo $this->get_field_name( 'title' ); ?>" type="text"
                    value="<?php echo esc_attr( $title ); ?>">
@@ -74,18 +81,10 @@ class Wpchandra_Facebook_Like_Box extends WP_Widget {
  
         <p>
             <label
-                for="<?php echo $this->get_field_id( 'page_username' ); ?>"><?php _e( 'Facebook Page URL:' ); ?></label>
+                for="<?php echo $this->get_field_id( 'page_username' ); ?>"><?php _e( 'Facebook Page URL' ); ?>:</label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'page_username' ); ?>"
                    name="<?php echo $this->get_field_name( 'page_username' ); ?>" type="text"
                    value="<?php echo esc_attr( $page_username ); ?>">
-        </p>
-        
-         <p>
-            <label
-                for="<?php echo $this->get_field_id( 'fb_api_key' ); ?>"><?php _e( 'Facebook API Key:' ); ?></label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'fb_api_key' ); ?>"
-                   name="<?php echo $this->get_field_name( 'fb_api_key' ); ?>" type="text"
-                   value="<?php echo esc_attr( $fb_api_key ); ?>">
         </p>
  
         <p>
@@ -112,7 +111,7 @@ class Wpchandra_Facebook_Like_Box extends WP_Widget {
         
          <p>
             <label
-                for="<?php echo $this->get_field_id( 'width' ); ?>"><?php _e( 'Box Width:' ); ?></label>
+                for="<?php echo $this->get_field_id( 'width' ); ?>"><?php _e( 'Width:' ); ?>:</label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'width' ); ?>"
                    name="<?php echo $this->get_field_name( 'width' ); ?>" type="text"
                    value="<?php echo esc_attr( $width ); ?>">
@@ -120,12 +119,15 @@ class Wpchandra_Facebook_Like_Box extends WP_Widget {
         
         <p>
             <label
-                for="<?php echo $this->get_field_id( 'height' ); ?>"><?php _e( 'Box Height:' ); ?></label>
+                for="<?php echo $this->get_field_id( 'height' ); ?>"><?php _e( 'Height' ); ?>:</label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'height' ); ?>"
                    name="<?php echo $this->get_field_name( 'height' ); ?>" type="text"
                    value="<?php echo esc_attr( $height ); ?>">
         </p>
- 
+        
+        <p>
+        	 <label><?php _e( 'Shortcode' ); ?>:</label><br />
+ 			 <code>[wpchandra-likebox url="https://www.facebook.com/WPChandra-To-Start-for-Web-Development-325741047605388/" width="340" height="500" show_faces="true" show_Header="true" show_border="false" ]</code>
     <?php
     }
 
@@ -166,13 +168,10 @@ public function widget( $args, $instance ) {
  
         if ( empty( $page_username ) ) {
             echo "Facebook Page Url is missing in Widget settings.";
-        } else if(empty( $fb_api_key )){
-        	 echo "Facebook API Key is missing in Widget settings.";
         }
 		 else {
             ?>
                  <div class="fb-like-box" data-href="<?php echo $page_username; ?>" data-colorscheme="light" data-width="<?php echo $width; ?>" data-height="<?php echo $height; ?>" data-show-faces="<?php echo ( $show_friends_faces == 'on' ) ? 'true' : 'false'; ?>" data-header="<?php echo ( $show_Header == 'on' ) ? 'true' : 'false'; ?>" data-stream="false" data-show-border="<?php echo ( $show_border == 'on' ) ? 'true' : 'false'; ?>"></div>
-                 <div id="fb-root"></div><script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=<?php echo $fb_api_key; ?>&version=v2.0";fjs.parentNode.insertBefore(js, fjs);}(document, 'script', 'facebook-jssdk'));</script>
  
         <?php
         }
@@ -183,10 +182,27 @@ public function widget( $args, $instance ) {
 }
 
 // register Foo_Widget widget
-function register_foo_widget() {
+function register_wpchandra_fb_likebox_widget() {
     register_widget( 'Wpchandra_Facebook_Like_Box' );
 }
-add_action( 'widgets_init', 'register_foo_widget' );
+add_action( 'widgets_init', 'register_wpchandra_fb_likebox_widget' );
 
-
+// Register Shortcode
+function WPChandra_Facebook_Like_Box_add_shortcode( $atts ) {
+	
+	extract( shortcode_atts(
+		array(
+			'url' 			=> 'https://www.facebook.com/WPChandra-To-Start-for-Web-Development-325741047605388/',
+			'width' 		=> '380',
+			'height' 		=> '500',
+			'show_faces' 	=> 'true',
+			'show_Header' 	=> 'true',
+			'show_border' 	=> 'false'
+		), $atts )
+	);
+	
+	$html='<div class="fb-like-box" data-href="'.$url.'" data-colorscheme="light" data-width="'.$width.'" data-height="'.$height.'"  data-show-faces="'.$show_faces.'" data-header="'.$show_Header.'" data-stream="false" data-show-border="'.$show_border.'"></div>';
+	return $html;
+}
+add_shortcode( 'wpchandra-likebox', 'WPChandra_Facebook_Like_Box_add_shortcode' );
 

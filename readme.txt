@@ -16,6 +16,18 @@ Using Facebook like box widget easy and quick in your blog. This Plugin support 
 
 Facebook Like Box Widget. Facebook Like Box Widget is a social plugin that enables Facebook Page owners to attract and gain Likes & Recommendation Comments from their own website.
 
+### Features
+
+* Very Easy to install
+* No facebook api key required
+* Fully customized layout
+* Easy to add shortcode anywhere in your wordpress site.
+
+### Shortcode
+
+[wpchandra-likebox url="https://www.facebook.com/WPChandra-To-Start-for-Web-Development-325741047605388/" width="340" height="500" show_faces="true" show_Header="true" show_border="false" ]
+
+
 ### Find Us on Social Media
 
 * [Facebook](https://www.facebook.com/pages/WPChandra-To-Start-for-Web-Development/325741047605388?fref=ts)
@@ -51,4 +63,12 @@ There are no FAQ just yet
 4. Add WPChandra FB like box widget to your sidebar.    
 
 
+== Changelog === 
 
+= 2.0 =
+
+* Add extra features
+
+== Upgrade Notice ==
+
+= Verison 2.0 =
